@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.WindowsAzure.MobileServices;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -26,6 +27,9 @@ namespace HikeMate
     public sealed partial class App : Application
     {
         private TransitionCollection transitions;
+
+        public static MobileServiceClient MobileService = new MobileServiceClient(
+         "http://localhost:59477");
 
         /// <summary>
         /// Initializes the singleton application object.  This is the first line of authored code

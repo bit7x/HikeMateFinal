@@ -83,6 +83,7 @@
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
     <Compile Include="Controller\GenerateDistance.cs" />
+    <Compile Include="Controller\SyncLocationData.cs" />
     <Compile Include="Models\DistanceCalc.cs" />
     <Compile Include="Views\LocateMe.xaml.cs">
       <DependentUpon>LocateMe.xaml</DependentUpon>
