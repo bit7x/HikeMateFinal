@@ -38,6 +38,7 @@ namespace HikeMate
         Location location = new Location();
         BasicGeoposition position = new BasicGeoposition();
         Double totalDistance = 0;
+        SyncLocationData syncData = new SyncLocationData();
 
         public LocateMe()
         {
@@ -112,6 +113,7 @@ namespace HikeMate
                 location.CurrLattitude = Convert.ToDouble(latitude);
                 location.CurrLongitiude = Convert.ToDouble(longitiude);
                 GenerateDistance distance = new GenerateDistance(location);
+                syncWithCloud();
                 totalDistance = distance.CalculateDistanceTravelled();
                 txtDistance.Text = Convert.ToString(totalDistance);
                 });
@@ -148,6 +150,11 @@ namespace HikeMate
             MapControl.SetLocation(pin, new Geopoint(location));
             MapControl.Children.Add(pin);
             
+        }
+
+        private void syncWithCloud()
+        {
+            syncData.InsertLocationItem(location);
         }
 
 
