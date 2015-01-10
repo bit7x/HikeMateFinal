@@ -9,37 +9,37 @@ using HikemateMobileService.Models;
 
 namespace HikemateMobileService.Controllers
 {
-    public class TodoItemController : TableController<TodoItem>
+    public class LocationController : TableController<Location>
     {
         protected override void Initialize(HttpControllerContext controllerContext)
         {
             base.Initialize(controllerContext);
             MobileServiceContext context = new MobileServiceContext();
-            DomainManager = new EntityDomainManager<TodoItem>(context, Request, Services);
+            DomainManager = new EntityDomainManager<Location>(context, Request, Services);
         }
 
         // GET tables/TodoItem
-        public IQueryable<TodoItem> GetAllTodoItems()
+        public IQueryable<Location> GetAllTodoItems()
         {
             return Query();
         }
 
         // GET tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public SingleResult<TodoItem> GetTodoItem(string id)
+        public SingleResult<Location> GetTodoItem(string id)
         {
             return Lookup(id);
         }
 
         // PATCH tables/TodoItem/48D68C86-6EA6-4C25-AA33-223FC9A27959
-        public Task<TodoItem> PatchTodoItem(string id, Delta<TodoItem> patch)
+        public Task<Location> PatchTodoItem(string id, Delta<Location> patch)
         {
             return UpdateAsync(id, patch);
         }
 
         // POST tables/TodoItem
-        public async Task<IHttpActionResult> PostTodoItem(TodoItem item)
+        public async Task<IHttpActionResult> PostTodoItem(Location item)
         {
-            TodoItem current = await InsertAsync(item);
+            Location current = await InsertAsync(item);
             return CreatedAtRoute("Tables", new { id = current.Id }, current);
         }
 

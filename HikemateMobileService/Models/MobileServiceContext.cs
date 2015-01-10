@@ -28,7 +28,7 @@ namespace HikemateMobileService.Models
         {
         }
 
-        public DbSet<TodoItem> TodoItems { get; set; }
+        public DbSet<Location> TodoItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

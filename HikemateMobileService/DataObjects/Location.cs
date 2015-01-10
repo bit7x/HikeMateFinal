@@ -2,7 +2,7 @@
 
 namespace HikemateMobileService.DataObjects
 {
-    public class TodoItem : EntityData
+    public class Location : EntityData
     {
         public string Text { get; set; }
 

@@ -12,7 +12,7 @@ namespace HikeMate.Controller
     class SyncLocationData
     {
         private MobileServiceCollection<Location, Location> LocationItems;
-        private IMobileServiceTable<Location> LocationTable = App.MobileService.GetTable<Location>();
+        private IMobileServiceTable<Location> LocationTable = App.hikemateClient.GetTable<Location>();
 
         public async void InsertLocationItem(Location locationData)
         {

@@ -8,10 +8,10 @@ namespace HikeMate.Models
 {
     class Location
     {
-        private Double longitiude;
-        private Double latitude;
-        private Double currLongitiude;
-        private Double currLattitude;
+        private Double longitiude { get; set; }
+        private Double latitude { get; set; }
+        private Double currLongitiude { get; set; }
+        private Double currLattitude { get; set; }
 
         public Double Longitiude
         {

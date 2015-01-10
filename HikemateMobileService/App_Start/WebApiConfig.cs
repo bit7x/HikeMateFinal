@@ -21,7 +21,7 @@ namespace HikemateMobileService
 
             // To display errors in the browser during development, uncomment the following
             // line. Comment it out again when you deploy your service for production use.
-            // config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
+             config.IncludeErrorDetailPolicy = IncludeErrorDetailPolicy.Always;
 
             Database.SetInitializer(new MobileServiceInitializer());
         }
@@ -31,15 +31,15 @@ namespace HikemateMobileService
     {
         protected override void Seed(MobileServiceContext context)
         {
-            List<TodoItem> todoItems = new List<TodoItem>
+            List<Location> todoItems = new List<Location>
             {
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
-                new TodoItem { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
+                new Location { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
+                new Location { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
             };
 
-            foreach (TodoItem todoItem in todoItems)
+            foreach (Location todoItem in todoItems)
             {
-                context.Set<TodoItem>().Add(todoItem);
+                context.Set<Location>().Add(todoItem);
             }
 
             base.Seed(context);
