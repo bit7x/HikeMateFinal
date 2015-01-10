@@ -26,6 +26,11 @@ namespace HikeMate
     /// </summary>
     public sealed partial class App : Application
     {
+        // http://go.microsoft.com/fwlink/?LinkId=290986&clcid=0x409
+        public static Microsoft.WindowsAzure.MobileServices.MobileServiceClient hikemateClient = new Microsoft.WindowsAzure.MobileServices.MobileServiceClient(
+        "https://hikemate.azure-mobile.net/",
+        "qHZDqDRGkDJVUtGtpuMxkSpzYoykLm46");
+
         private TransitionCollection transitions;
 
         public static MobileServiceClient MobileService = new MobileServiceClient(
