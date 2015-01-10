@@ -35,6 +35,7 @@ namespace HikemateMobileService
             {
                 new Location { Id = Guid.NewGuid().ToString(), Text = "First item", Complete = false },
                 new Location { Id = Guid.NewGuid().ToString(), Text = "Second item", Complete = false },
+                new Location { Id = Guid.NewGuid().ToString(),  }
             };
 
             foreach (Location todoItem in todoItems)

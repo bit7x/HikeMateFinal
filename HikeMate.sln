@@ -4,6 +4,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 VisualStudioVersion = 12.0.31101.0
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HikeMate", "HikeMate\HikeMate.csproj", "{AD051EF0-DE05-48FD-A33D-B104ED3DD84A}"
+	ProjectSection(ProjectDependencies) = postProject
+		{24CC4ADE-3016-4C49-B8A1-3AEF6F9C4DC4} = {24CC4ADE-3016-4C49-B8A1-3AEF6F9C4DC4}
+	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HikemateMobileService", "HikemateMobileService\HikemateMobileService.csproj", "{24CC4ADE-3016-4C49-B8A1-3AEF6F9C4DC4}"
 EndProject
