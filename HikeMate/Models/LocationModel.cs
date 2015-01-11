@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace HikeMate.Models
 {
-    class Location
+    class LocationModel
     {
         public string Id { get; set; }
         private Double longitiude { get; set; }

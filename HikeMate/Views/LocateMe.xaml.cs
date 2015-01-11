@@ -35,7 +35,7 @@ namespace HikeMate
         String longitiude = "";
         String latitude = "";
         private Boolean initLocation = true;
-        Location location = new Location();
+        LocationModel location = new LocationModel();
         BasicGeoposition position = new BasicGeoposition();
         Double totalDistance = 0;
         SyncLocationData syncData = new SyncLocationData();
@@ -154,7 +154,8 @@ namespace HikeMate
 
         private void syncWithCloud()
         {
-            syncData.InsertLocationItem(location);
+            var LocationData = location;
+            syncData.InsertLocationItem(LocationData);
         }
 
 

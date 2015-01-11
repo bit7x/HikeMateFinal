@@ -8,9 +8,10 @@ namespace HikemateMobileService.DataObjects
 
         public bool Complete { get; set; }
 
-        private double longitiude { get; set; }
-        private double latitude { get; set; }
-        private double currLongitiude { get; set; }
-        private double currLattitude { get; set; }
+        public double longitiude { get; set; }
+        public double latitude { get; set; }
+        public double currLongitiude { get; set; }
+        public double currLattitude { get; set; }
+
     }
 }

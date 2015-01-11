@@ -9,10 +9,10 @@ namespace HikeMate.Controller
 {
     class GenerateDistance
     {
-        Location location;
+        LocationModel location;
         DistanceCalc calc = new DistanceCalc();
 
-        public GenerateDistance(Location location)
+        public GenerateDistance(LocationModel location)
         {
             this.location = location;
         }
