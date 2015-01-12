@@ -11,20 +11,27 @@ namespace HikeMate.Controller
 {
     class SyncLocationData
     {
-        private MobileServiceCollection<LocationModel, LocationModel> LocationItems;
-        private IMobileServiceTable<LocationModel> LocationTable = App.hikemateClient.GetTable<LocationModel>();
+        private MobileServiceCollection<Locations,Locations> LocationItems;
+        private IMobileServiceTable<Locations> LocationTable = App.hikemateClient.GetTable<Locations>();
 
-        public async void InsertLocationItem(LocationModel locationData)
+        public async void InsertLocationItem(Locations locationData)
         {
             try
             {
+               
                 await LocationTable.InsertAsync(locationData);
                 LocationItems.Add(locationData);
             }
             catch (InvalidOperationException ex)
             {
-                System.Diagnostics.Debug.WriteLine(ex.StackTrace);
+                System.Diagnostics.Debug.WriteLine(ex.Message);
             }
+            catch (NullReferenceException e)
+            {
+                System.Diagnostics.Debug.WriteLine(e.Message);
+                System.Diagnostics.Debug.WriteLine(e.StackTrace);
+            }
+          
         }
 
         public async void checkInserted(System.ComponentModel.AsyncCompletedEventArgs actionComplete)

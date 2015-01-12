@@ -7,7 +7,7 @@
     <ProductVersion>
     </ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <ProjectGuid>{24CC4ADE-3016-4C49-B8A1-3AEF6F9C4DC4}</ProjectGuid>
+    <ProjectGuid>{3F36B049-3689-4415-AB94-827C1967BC5C}</ProjectGuid>
     <ProjectTypeGuids>{349c5851-65df-11da-9384-00065b846f21};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -186,8 +186,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\WebApiConfig.cs" />
+    <Compile Include="Controllers\LocationsController.cs" />
     <Compile Include="Controllers\TodoItemController.cs" />
-    <Compile Include="DataObjects\Location.cs" />
+    <Compile Include="DataObjects\Locations.cs" />
+    <Compile Include="DataObjects\TodoItem.cs" />
     <Compile Include="Models\MobileServiceContext.cs" />
     <Compile Include="ScheduledJobs\SampleJob.cs" />
     <Compile Include="Global.asax.cs">
@@ -233,7 +235,7 @@
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>64599</DevelopmentServerPort>
+          <DevelopmentServerPort>49941</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
           <IISUrl>http://localhost:64599/</IISUrl>
           <NTLMAuthentication>False</NTLMAuthentication>

@@ -35,10 +35,10 @@ namespace HikeMate
         String longitiude = "";
         String latitude = "";
         private Boolean initLocation = true;
-        LocationModel location = new LocationModel();
         BasicGeoposition position = new BasicGeoposition();
         Double totalDistance = 0;
         SyncLocationData syncData = new SyncLocationData();
+        Locations location = new Locations();
 
         public LocateMe()
         {
@@ -77,7 +77,7 @@ namespace HikeMate
                 geolocator = new Geolocator();
                 Btn.Content = "Stop Tracking";
                 geolocator.DesiredAccuracy = PositionAccuracy.High;
-                geolocator.MovementThreshold = 10;
+                geolocator.MovementThreshold = 3;
                 geolocator.PositionChanged += geolocator_PositionChanged;
                 trackingOn = true;
                
@@ -93,14 +93,17 @@ namespace HikeMate
 
         public async  void geolocator_PositionChanged(Geolocator sender, PositionChangedEventArgs args)
         {
+          
+
             await this.Dispatcher.RunAsync(Windows.UI.Core.CoreDispatcherPriority.Normal, async () =>
             {
                     longitiude = args.Position.Coordinate.Point.Position.Longitude.ToString();
                     latitude = args.Position.Coordinate.Point.Position.Latitude.ToString();
                     if (initLocation == true)
                     {
-                        location.Latitude = Convert.ToDouble(latitude);
-                        location.Longitiude = Convert.ToDouble(longitiude);
+                        location.Id = Guid.NewGuid().ToString();
+                        location.latitude = Convert.ToDouble(latitude);
+                        location.longitiude = Convert.ToDouble(longitiude);
                         initLocation = false;
                     }
                     Longi.Text = "Longitiude : " + longitiude + " ::" + " Latitiude : " + latitude;
@@ -110,8 +113,8 @@ namespace HikeMate
                 position.Latitude = Convert.ToDouble(latitude);
                 position.Longitude = Convert.ToDouble(longitiude);
                 AddPushpin(position, "Location");
-                location.CurrLattitude = Convert.ToDouble(latitude);
-                location.CurrLongitiude = Convert.ToDouble(longitiude);
+                location.currLattitude = Convert.ToDouble(latitude);
+                location.currLongitiude = Convert.ToDouble(longitiude);
                 GenerateDistance distance = new GenerateDistance(location);
                 syncWithCloud();
                 totalDistance = distance.CalculateDistanceTravelled();
@@ -156,6 +159,7 @@ namespace HikeMate
         {
             var LocationData = location;
             syncData.InsertLocationItem(LocationData);
+            
         }
 
 

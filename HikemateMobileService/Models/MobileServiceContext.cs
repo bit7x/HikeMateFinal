@@ -28,7 +28,7 @@ namespace HikemateMobileService.Models
         {
         }
 
-        public DbSet<Location> TodoItems { get; set; }
+        public DbSet<TodoItem> TodoItems { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
@@ -42,6 +42,8 @@ namespace HikemateMobileService.Models
                 new AttributeToColumnAnnotationConvention<TableColumnAttribute, string>(
                     "ServiceTableColumn", (property, attributes) => attributes.Single().ColumnType.ToString()));
         }
+
+        public System.Data.Entity.DbSet<HikemateMobileService.DataObjects.Locations> Locations { get; set; }
     }
 
 }

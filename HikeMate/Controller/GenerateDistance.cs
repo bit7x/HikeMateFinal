@@ -9,10 +9,10 @@ namespace HikeMate.Controller
 {
     class GenerateDistance
     {
-        LocationModel location;
+        Locations location;
         DistanceCalc calc = new DistanceCalc();
 
-        public GenerateDistance(LocationModel location)
+        public GenerateDistance(Locations location)
         {
             this.location = location;
         }
@@ -21,7 +21,7 @@ namespace HikeMate.Controller
         {
 
             Double ditanceTravelled = 0;
-            ditanceTravelled = calc.distance(location.Latitude, location.Longitiude, location.CurrLattitude, location.CurrLongitiude, 'K');
+            ditanceTravelled = calc.distance(location.latitude, location.longitiude, location.currLattitude, location.currLongitiude, 'K');
             return ditanceTravelled;
         }
     }
