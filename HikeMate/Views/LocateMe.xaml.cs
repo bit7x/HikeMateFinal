@@ -52,12 +52,9 @@ namespace HikeMate
         /// This parameter is typically used to configure the page.</param>
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
+
         }
 
-        private void btnViewChange_Click(object sender, RoutedEventArgs e)
-        {
-            MapControl.Style = MapStyle.AerialWithRoads;
-        }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
@@ -160,6 +157,11 @@ namespace HikeMate
             var LocationData = location;
             syncData.InsertLocationItem(LocationData);
             
+        }
+
+        private void btnViewChange_Click(object sender, RoutedEventArgs e)
+        {
+
         }
 
 

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using HikeMate.Controller;
+using System;
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
@@ -25,7 +26,7 @@ namespace HikeMate
         public MainPage()
         {
             this.InitializeComponent();
-
+            VoiceCommandInstallExecutor();
             this.NavigationCacheMode = NavigationCacheMode.Required;
         }
 
@@ -34,6 +35,12 @@ namespace HikeMate
         /// </summary>
         /// <param name="e">Event data that describes how this page was reached.
         /// This parameter is typically used to configure the page.</param>
+
+        public static void VoiceCommandInstallExecutor()
+        {
+            VoiceService service = new VoiceService();
+            
+        }
         protected override void OnNavigatedTo(NavigationEventArgs e)
         {
             // TODO: Prepare page for display here.

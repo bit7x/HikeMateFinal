@@ -84,6 +84,7 @@
     </Compile>
     <Compile Include="Controller\GenerateDistance.cs" />
     <Compile Include="Controller\SyncLocationData.cs" />
+    <Compile Include="Controller\VoiceService.cs" />
     <Compile Include="Models\DistanceCalc.cs" />
     <Compile Include="Views\LocateMe.xaml.cs">
       <DependentUpon>LocateMe.xaml</DependentUpon>
