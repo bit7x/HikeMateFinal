@@ -82,9 +82,20 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
     </Compile>
+    <Compile Include="Constants.cs" />
+    <Compile Include="CredentialServices\FacebookLoginService.cs" />
     <Compile Include="Controller\GenerateDistance.cs" />
     <Compile Include="Controller\SyncLocationData.cs" />
     <Compile Include="Controller\VoiceService.cs" />
+    <Compile Include="CredentialServices\Interfaces\IFacebookService.cs" />
+    <Compile Include="CredentialServices\Interfaces\IGoogleService.cs" />
+    <Compile Include="CredentialServices\Interfaces\ILogManager.cs" />
+    <Compile Include="CredentialServices\Interfaces\IMicrosoftService.cs" />
+    <Compile Include="CredentialServices\Interfaces\ISessionProvider.cs" />
+    <Compile Include="CredentialServices\Interfaces\ISessionService.cs" />
+    <Compile Include="CredentialServices\Model\ServiceResponse.cs" />
+    <Compile Include="CredentialServices\Model\Session.cs" />
+    <Compile Include="CredentialServices\Model\UserInfo.cs" />
     <Compile Include="Models\DistanceCalc.cs" />
     <Compile Include="Views\LocateMe.xaml.cs">
       <DependentUpon>LocateMe.xaml</DependentUpon>
@@ -94,6 +105,9 @@
     </Compile>
     <Compile Include="Models\Locations.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Views\LoginPage.xaml.cs">
+      <DependentUpon>LoginPage.xaml</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <AppxManifest Include="Package.appxmanifest">
@@ -107,6 +121,33 @@
     <Content Include="Assets\Square71x71Logo.scale-240.png" />
     <Content Include="Assets\StoreLogo.scale-240.png" />
     <Content Include="Assets\WideLogo.scale-240.png" />
+    <Content Include="Images\1195445181899094722molumen_phone_icon.svg.hi.png" />
+    <Content Include="Images\call.png" />
+    <Content Include="Images\cloud.jpg" />
+    <Content Include="Images\emergency call.png" />
+    <Content Include="Images\health.png" />
+    <Content Include="Images\Health_Care_Medical_040-512.png" />
+    <Content Include="Images\heartbeat.gif" />
+    <Content Include="Images\heartrate.png" />
+    <Content Include="Images\hiking.jpg" />
+    <Content Include="Images\icon_31313.png" />
+    <Content Include="Images\im.jpg" />
+    <Content Include="Images\images %2819%29.jpg" />
+    <Content Include="Images\images.jpg" />
+    <Content Include="Images\KLets---Voice-control.png" />
+    <Content Include="Images\location-512.png" />
+    <Content Include="Images\location.png" />
+    <Content Include="Images\lock.png" />
+    <Content Include="Images\LOGO.jpg" />
+    <Content Include="Images\primacy_emergingtech_VoiceRecognition_icon_260x260.png" />
+    <Content Include="Images\pword.jpg" />
+    <Content Include="Images\save_in_the_cloud-512.png" />
+    <Content Include="Images\settings_2-512.png" />
+    <Content Include="Images\tuxpi.com.1420708936.jpg" />
+    <Content Include="Images\upcloud.png" />
+    <Content Include="Images\user.png" />
+    <Content Include="Images\userrrr.jpg" />
+    <Content Include="Images\voice control.jpg" />
     <Content Include="VoiceCommandDefinition.xml" />
   </ItemGroup>
   <ItemGroup>
@@ -114,6 +155,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Styles\CommonStyles.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="Views\LocateMe.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -122,8 +167,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="Views\LoginPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Reference Include="Facebook">
+      <HintPath>..\packages\Facebook.6.8.0\lib\portable-win81+wpa81\Facebook.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.WindowsAzure.Mobile">
       <HintPath>..\packages\WindowsAzure.MobileServices.1.3.0\lib\wpa81\Microsoft.WindowsAzure.Mobile.dll</HintPath>
     </Reference>
@@ -143,6 +195,11 @@
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <SDKReference Include="Telerik UI For Windows Universal, Version=2014.3.1203.45">
+      <Name>Telerik UI For Windows Universal</Name>
+    </SDKReference>
   </ItemGroup>
   <PropertyGroup Condition=" '$(VisualStudioVersion)' == '' or '$(VisualStudioVersion)' &lt; '12.0' ">
     <VisualStudioVersion>12.0</VisualStudioVersion>

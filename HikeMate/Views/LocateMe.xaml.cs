@@ -120,7 +120,7 @@ namespace HikeMate
           
         }
 
-        public void AddPushpin(BasicGeoposition location, string text)
+        public async void AddPushpin(BasicGeoposition location, string text)
         {
             var pin = new Grid()
             {
@@ -149,14 +149,14 @@ namespace HikeMate
 
             MapControl.SetLocation(pin, new Geopoint(location));
             MapControl.Children.Add(pin);
-            
+            await MapControl.TrySetViewAsync(new Geopoint(position));
+            MapControl.ZoomLevel = 14;
         }
 
         private void syncWithCloud()
         {
             var LocationData = location;
             syncData.InsertLocationItem(LocationData);
-            
         }
 
         private void btnViewChange_Click(object sender, RoutedEventArgs e)
